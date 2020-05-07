@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Zhazhayu&#39;s Blog">
 <meta property="og:description" content="这是我的第一篇CTF密码笔记，万事开头难，希望我能坚持学下去。因为是入门，所以题目来源为攻防世界">
 <meta property="article:published_time" content="2020-05-05T12:51:28.326Z">
-<meta property="article:modified_time" content="2020-05-07T12:19:13.465Z">
+<meta property="article:modified_time" content="2020-05-07T12:22:02.462Z">
 <meta property="article:author" content="zhazhayu">
 <meta property="article:tag" content="crypto">
 <meta name="twitter:card" content="summary">
@@ -339,9 +339,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">2:  &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt;</span><br><span class="line">3:  &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt;</span><br><span class="line">7:  &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt;</span><br><span class="line">5:  &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt;</span><br><span class="line">13：&lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;</span><br><span class="line">12：&lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt;</span><br><span class="line">9:  &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt;</span><br><span class="line">1:  &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt;</span><br><span class="line">8:  &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt;</span><br><span class="line">10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt;</span><br><span class="line">4:  &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt;</span><br><span class="line">11：&lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt;</span><br><span class="line">6:  &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt;</span><br></pre></td></tr></table></figure>
 <p>然后首字母按照密文排列，第十七列为flag(小写了)：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">2:  &lt; NACZDTRXMJQOYHGVS f UWIKPBEL &lt;</span><br><span class="line">3:  &lt; FHTEQGYXPLOCKBDMA i ZVRNSJUW &lt;</span><br><span class="line">7:  &lt; QGWTHSPYBXIZULVKM r AFDCEONJ &lt;</span><br><span class="line">5:  &lt; KCPMNZQWXYIHFRLAB e UOTSGJVD &lt;</span><br><span class="line">13：&lt; SXCDERFVBGTYHNUMK i LOPJZQAW &lt;</span><br><span class="line">12：&lt; EIURYTASBKJDFHGLV n CMXZPQOW &lt;</span><br><span class="line">9:  &lt; VUBMCQWAOIKZGJXPL t DSRFHENY &lt;</span><br><span class="line">1:  &lt; OSFEZWAXJGDLUBVIQ h KYPNTCRM &lt;</span><br><span class="line">8:  &lt; QNOZUTWDCVRJLXKIS e FAPMYGHB &lt;</span><br><span class="line">10: &lt; OWTGVRSCZQKELMXYI h PUDNAJFB &lt;</span><br><span class="line">4:  &lt; FCUKTEBSXQYIZMJWA o RPLNDVHG &lt;</span><br><span class="line">11：&lt; NBVCXZQWERTPOIUYA l SKDJFHGM &lt;</span><br><span class="line">6:  &lt; PNYCJBFZDRUSLOQXV e TAMKGHIW &lt;</span><br></pre></td></tr></table></figure>
-<p>flag:fire in the hole</p>
-<p>##告诉你个秘密(混合编码)</p>
-<p>题目如下：</p>
+<p>得到flag:fire in the hole</p>
+<h2 id="告诉你个秘密-混合编码"><a href="#告诉你个秘密-混合编码" class="headerlink" title="告诉你个秘密(混合编码)"></a>告诉你个秘密(混合编码)</h2><p>题目如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ 636A56355279427363446C4A49454A7154534230526D6843</span><br><span class="line">$ 56445A31614342354E326C4B4946467A5769426961453067</span><br></pre></td></tr></table></figure>
 <p>数字加字母，且字母仅有A-F，所以应该是16进制编码，文本转换，得：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cjV5RyBscDlJIEJqTSB0RmhCVDZ1aCB5N2lKIFFzWiBiaE0g</span><br></pre></td></tr></table></figure>
@@ -527,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#混合编码"><span class="nav-number">1.</span> <span class="nav-text">混合编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转轮机加密"><span class="nav-number">2.</span> <span class="nav-text">转轮机加密</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#混合编码"><span class="nav-number">1.</span> <span class="nav-text">混合编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转轮机加密"><span class="nav-number">2.</span> <span class="nav-text">转轮机加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#告诉你个秘密-混合编码"><span class="nav-number">3.</span> <span class="nav-text">告诉你个秘密(混合编码)</span></a></li></ol></div>
             
 
           </div>
