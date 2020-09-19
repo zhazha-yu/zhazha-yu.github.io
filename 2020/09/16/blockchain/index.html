@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="blockchain," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="区块链组成、go语言环境安装及运行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链学习记录(1)">
+<meta property="og:url" content="http://yoursite.com/2020/09/16/blockchain/index.html">
+<meta property="og:site_name" content="Zhazhayu&#39;s Blog">
+<meta property="og:description" content="区块链组成、go语言环境安装及运行">
+<meta property="article:published_time" content="2020-09-16T12:47:28.470Z">
+<meta property="article:modified_time" content="2020-09-19T07:45:56.750Z">
+<meta property="article:author" content="zhazhayu">
+<meta property="article:tag" content="blockchain">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/09/16/blockchain/"/>
+
+
+
+
+
+  <title>区块链学习记录(1) | Zhazhayu's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhazhayu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/blockchain/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhazhayu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/up.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhazhayu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">区块链学习记录(1)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-16T20:47:28+08:00">
+                2020-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/09/16/blockchain/" class="leancloud_visitors" data-flag-title="区块链学习记录(1)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>区块链组成、go语言环境安装及运行</p>
+<a id="more"></a>
+<h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>从科技层面来看，区块链涉及数学、密码学、互联网和计算机编程等很多科学技术问题<br>从应用视角来看，简单来说，区块链是一个分布式的共享账本和数据库<br>区块链是分布式数据存储、点对点传输、共识机制、加密算法等计算机技术的新型应用模式</p>
+<h3 id="区块链组成"><a href="#区块链组成" class="headerlink" title="区块链组成"></a>区块链组成</h3><p>区块链是一种按照时间顺序将数据区块以顺序相连的方式组合成的一种链式数据结构</p>
+<h3 id="区块组成"><a href="#区块组成" class="headerlink" title="区块组成"></a>区块组成</h3><p>区块头(Block Header)和区块体(Block)</p>
+<p>##区块头</p>
+<p>区块头包括三组元数据：<br>1.用于连接前面的区块、索引自父区块哈希值的数据。<br>2.挖矿难度、Nonce（随机数，用于工作量证明算法的计数器）、时间戳<br>3.能够总结并快速归纳校验区块中所有交易数据的Merkle（默克尔）树根数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">数据项                              目的                            更新时间          大小(字节)</span><br><span class="line"></span><br><span class="line">Version                          区块版本号                         更新软件后          4</span><br><span class="line">hashPrevBlock                前一区块256位Hash值                      新的区块链进入      32</span><br><span class="line">hashMerkleBlock             一个区块所有交易Hash值                     接受一个交易时       32</span><br><span class="line">Time            从1970-01-01 00:00 UTC开始、以秒为单位的当前时间戳      每几秒更新           4</span><br><span class="line">Bits                        压缩格式当前目标Hash值                    挖矿难度调整时       4</span><br><span class="line">Nonce                             0~32随机数                          产生Hash时         4</span><br></pre></td></tr></table></figure>
+<h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h3><p>从区块生成起存在于区块中，对应每一次的交易认证，证明交易记录的真实性</p>
+<h3 id="Merkle树结构-根节点"><a href="#Merkle树结构-根节点" class="headerlink" title="Merkle树结构(根节点)"></a>Merkle树结构(根节点)</h3><p>Merkle树的数据结构存放所有叶子节点的值，并以此为基础生成一个统一的哈希值<br>Merkle的叶子节点存储的是数据信息的哈希值，非叶子节点的存储是对其下面所有叶子节点的组合进行哈希计算后得出的哈希值<br>区块中任意一个数据的变更都会导致Merkle树结构发生变化，在交易信息验证对比的过程中，只需验证Merkle树结构生成的统一哈希值，因此Merkle树结构能够大大减少数据的计算量</p>
+<h2 id="区块体"><a href="#区块体" class="headerlink" title="区块体"></a>区块体</h2><p>主要是包含交易数据（Transaction，TX）．<br>Transactions包括一个input和多个output．并且输入和输出相等：input satoshi=output satoshi．已确认的交易（或者说已经花出去的钱）被称为Transaction identifiers（TXIDs），未确认的被称为Unspent Transaction Outputs（UTXOs）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">数据项                          描述                长度(字节)</span><br><span class="line"></span><br><span class="line">Magic no                总是0xD9B4VEF9               4</span><br><span class="line">Blocklize             到区块结束的字节长度           4</span><br><span class="line">Blockheader             包含6个数据项               80</span><br><span class="line">Transaction counter     正整数VI=Varlnt              1~9</span><br><span class="line">Transactions          交易列表(非空)              取决于交易</span><br></pre></td></tr></table></figure>
+
+<p>模板如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 比特币区块结构</span></span><br><span class="line">class 区块的数据结构:</span><br><span class="line">    神奇数 = 4 byte <span class="comment"># 区块之间的分割符</span></span><br><span class="line">    区块大小 = 4 byte <span class="comment"># 记录当前区块的大小</span></span><br><span class="line">    </span><br><span class="line">    数据区块头部信息 = 80 byte <span class="comment"># 记录当前区块的头部信息，其Hash值是下一个新区块的参数</span></span><br><span class="line">    class 区块头数据结构:</span><br><span class="line">    	版本号 = 4 byte <span class="comment"># 数据块的版本号</span></span><br><span class="line">        前一个区块的信息 = 32 byte <span class="comment"># 记录前一个数据区块的Hash值，当前区块的Hash值一定比它小</span></span><br><span class="line">        Merkle树的根值 = 32 byte <span class="comment"># 记录当前区块中所有交易Merkle树根节点的Hash值</span></span><br><span class="line">        时间戳 = 4 byte <span class="comment"># 记录当前区块的生成时间，按照Unix时间格式</span></span><br><span class="line">        目标值 = 4 byte <span class="comment"># 当前区块生成所达到目标值的特征，用于矿工的工作量证明</span></span><br><span class="line">        随机数 = 4 byte <span class="comment"># 当前区块工作量证明的参数</span></span><br><span class="line">    </span><br><span class="line">    交易计数 = 1~9 byte <span class="comment"># 当前区块所记录的交易数</span></span><br><span class="line">    交易详情 = 变长 <span class="comment"># 记录当前区块保存的所有交易细节</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#摘自Nykuvl学长的Blog</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="散列值"><a href="#散列值" class="headerlink" title="散列值"></a>散列值</h2><pre><code>散列函数(Hash function)又称散列算法、哈希函数，是一种从任何一种数据中创建小的数字“指纹”的方法。散列函数把消息或数据压缩成摘要，使得数据量变小，将数据的格式固定下来。
+该函数将数据打乱混合，重新创建一个叫做散列值（hash values，hash codes，hash sums，或hashes）的指纹
+Hash算法是一个广义的算法，也可以认为是一种思想，使用Hash算法可以提高存储空间的利用率，可以提高数据的查询效率，也可以做数字签名来保障数据传递的安全性。所以Hash算法被广泛地应用在互联网应用中。 [1] 
+Hash算法也被称为散列算法，Hash算法虽然被称为算法，但实际上它更像是一种思想。Hash算法没有一个固定的公式，只要符合散列思想的算法都可以被称为是Hash算法</code></pre><h3 id="散列函数特性"><a href="#散列函数特性" class="headerlink" title="散列函数特性"></a>散列函数特性</h3><pre><code>1.单向性。即不可逆，给定明文可以计算出散列值，但是给定散列值不能计算出明文。
+2.抗碰撞。不同明文使用同一种散列函数很难得到相同的散列值。
+3.抗篡改。两个不同明文只要有很小的区别，得出的散列值差别也会很大。
+4.散列值长度固定。不同散列函数计算出的散列值都是有固定长度的</code></pre><h2 id="以太坊"><a href="#以太坊" class="headerlink" title="以太坊"></a>以太坊</h2><p>以太坊（Ethereum）是一个开源的有智能合约功能的公共区块链平台，通过其专用加密货币以太币（Ether，简称“ETH”）提供去中心化的以太虚拟机（Ethereum Virtual Machine）来处理点对点合约</p>
+<h3 id="以太坊设计原则"><a href="#以太坊设计原则" class="headerlink" title="以太坊设计原则"></a>以太坊设计原则</h3><p>1、简洁原则<br>    以太坊协议将尽可能简单，即便以某些数据存储和时间上的低效为代价。一个普通的程序员也能够完美地去实现完整的开发说明。这将最终有助于降低任何特殊个人或精英团体可能对协议的影响并且推进以太坊作为对所有人开放的协议的应用前景。添加复杂性的优化将不会被接受，除非它们提供了非常根本性的益处。<br>2、通用原则<br>    没有“特性”是以太坊设计哲学中的一个根本性部分。取而代之的是，以太坊提供了一个内部的图灵完备的脚本语言以供用户来构建任何可以精确定义的智能合约或交易类型<br>3、模块化原则<br>    以太坊的不同部分应被设计为尽可能模块化的和可分的。开发过程中，应该能够容易地让在协议某处做一个小改动的同时应用层却可以不加改动地继续正常运行。以太坊开发应该最大程度地做好这些事情以助益于整个加密货币生态系统，而不仅是自身。<br>4、无歧视原则<br>    协议不应主动地试图限制或阻碍特定的类目或用法，协议中的所有监管机制都应被设计为直接监管危害，不应试图反对特定的不受欢迎的应用。人们甚至可以在以太坊之上运行一个无限循环脚本，只要他愿意为其支付按计算步骤计算的交易费用。</p>
+<h2 id="全节点、轻节点"><a href="#全节点、轻节点" class="headerlink" title="全节点、轻节点"></a>全节点、轻节点</h2><p>以太坊区块的存储主要分为两个部分，分别是Header和Body<br>Block Header里面会存比较多的数据，比如说父区块的区块hash，时间戳，挖矿的难度值等等相关的参数<br>其中最重要的当属以太坊中的三个哈希值，与此对应在区块头中的就是StateRoot，TransactionRoot和ReceiptRoot<br>在以太坊中利用了一种叫做Merkle-PatriciaTrie（MPT）是Ethereum来存储区块数据的核心数据结构<br>最简单理解是一个倒置的树形结构，每个节点可能有若干个子节点，在最底层，也就是叶子节点，把数据分成若干个小的数据块，计算出相应的Hash与之对应<br>但是往上层看去，Merkle树并不是直接去运算根哈希，而是把相邻的两个节点的哈希合并成一个字符串，然后运算这个字符串的哈希，这样每两个哈希就能够得到了一个”子哈希“，而这个自哈希就是他们的父节点的哈希值</p>
+<h2 id="go语言环境安装、初步运行"><a href="#go语言环境安装、初步运行" class="headerlink" title="go语言环境安装、初步运行"></a>go语言环境安装、初步运行</h2><p><a href="https://golang.google.cn/dl/" target="_blank" rel="noopener">安装包下载地址</a><br>里面有各种系统下的go语言安装包，我选择的是Windows包<br>下载后安装包，并配置Path环境变量，例如: F:/Go/bin</p>
+<p>创建工作空间F:/gogogo<br>创建文件1.go</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import<span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line">func <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>go语言在DOS界面运行。进入工作空间，输入 go run 1.go ，成功！</p>
+<!--more-->
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blockchain/" rel="tag"># blockchain</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/14/web2/" rel="next" title="wakeup()反序列化2">
+                <i class="fa fa-chevron-left"></i> wakeup()反序列化2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/up.jpg"
+                alt="zhazhayu" />
+            
+              <p class="site-author-name" itemprop="name">zhazhayu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://sun9-22.userapi.com/SHnHVkQKxnLOlXuvUK7wicx766SJy1t1gBiMlA/gVsM1XQMvzQ.jpg" title="点此查看高清背景图片" target="_blank">点此查看高清背景图片</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#区块链"><span class="nav-number">1.</span> <span class="nav-text">区块链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区块链组成"><span class="nav-number">1.1.</span> <span class="nav-text">区块链组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区块组成"><span class="nav-number">1.2.</span> <span class="nav-text">区块组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间戳"><span class="nav-number">1.3.</span> <span class="nav-text">时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merkle树结构-根节点"><span class="nav-number">1.4.</span> <span class="nav-text">Merkle树结构(根节点)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区块体"><span class="nav-number">2.</span> <span class="nav-text">区块体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散列值"><span class="nav-number">3.</span> <span class="nav-text">散列值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#散列函数特性"><span class="nav-number">3.1.</span> <span class="nav-text">散列函数特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以太坊"><span class="nav-number">4.</span> <span class="nav-text">以太坊</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以太坊设计原则"><span class="nav-number">4.1.</span> <span class="nav-text">以太坊设计原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全节点、轻节点"><span class="nav-number">5.</span> <span class="nav-text">全节点、轻节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#go语言环境安装、初步运行"><span class="nav-number">6.</span> <span class="nav-text">go语言环境安装、初步运行</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhazhayu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/assets/miku.model.json"},"display":{"position":"left","width":200,"height":400,"top":"-40px","right":"25px"},"mobile":{"show":true}});</script></body>
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
