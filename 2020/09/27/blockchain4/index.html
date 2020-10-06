@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="blockchain," />
 
 
 
@@ -79,11 +79,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zhazhayu&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="以太坊私有链部分命令操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链学习记录(4)">
+<meta property="og:url" content="http://yoursite.com/2020/09/27/blockchain4/index.html">
 <meta property="og:site_name" content="Zhazhayu&#39;s Blog">
+<meta property="og:description" content="以太坊私有链部分命令操作">
+<meta property="article:published_time" content="2020-09-27T02:27:56.189Z">
+<meta property="article:modified_time" content="2020-10-06T13:31:23.602Z">
 <meta property="article:author" content="zhazhayu">
+<meta property="article:tag" content="blockchain">
 <meta name="twitter:card" content="summary">
 
 
@@ -114,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/09/27/blockchain4/"/>
 
 
 
 
 
-  <title>Zhazhayu's Blog</title>
+  <title>区块链学习记录(4) | Zhazhayu's Blog</title>
   
 
 
@@ -139,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -223,9 +227,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -238,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/crypto1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/27/blockchain4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhazhayu">
@@ -255,9 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/05/crypto1/" itemprop="url">Crypto 1</a></h1>
+          <h1 class="post-title" itemprop="name headline">区块链学习记录(4)</h1>
         
 
         <div class="post-meta">
@@ -269,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T20:51:28+08:00">
-                2020-05-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-27T10:27:56+08:00">
+                2020-09-27
               </time>
             
 
@@ -287,7 +289,7 @@
 
           
           
-             <span id="/2020/05/05/crypto1/" class="leancloud_visitors" data-flag-title="Crypto 1">
+             <span id="/2020/09/27/blockchain4/" class="leancloud_visitors" data-flag-title="区块链学习记录(4)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -318,16 +320,45 @@
       
 
       
-        
-          <p>这是我的第一篇CTF密码笔记，万事开头难，希望我能坚持学下去。<br>因为是入门，所以题目来源为<a href="https://adworld.xctf.org.cn/" target="_blank" rel="noopener">攻防世界</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/05/crypto1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>以太坊私有链部分命令操作</p>
+<a id="more"></a>
+
+<h2 id="私有链创建"><a href="#私有链创建" class="headerlink" title="私有链创建"></a>私有链创建</h2><p>部署：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir ./ init genesist.json</span><br></pre></td></tr></table></figure>
+<p>开启创世块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geth --datadir ./ console</span><br></pre></td></tr></table></figure>
+<p>账户查询：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.accounts</span><br></pre></td></tr></table></figure>
+<p>创建账户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">personal.newAccount(<span class="string">"123456"</span>)		//123456为账户密码，输出为账户名</span><br><span class="line">personal.newAccount(<span class="string">"654321"</span>)		//654321为账户密码，输出为账户名</span><br></pre></td></tr></table></figure>
+
+<h2 id="私有链挖矿"><a href="#私有链挖矿" class="headerlink" title="私有链挖矿"></a>私有链挖矿</h2><p>启动挖矿：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miner.start(1)		//1为挖矿使用线程，第一次挖矿会配置DAG文件，挖矿成功会提示<span class="string">"Successfully sealed new block"</span>和🔨图标提示</span><br></pre></td></tr></table></figure>
+<p>结束挖矿：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miner.stop()</span><br></pre></td></tr></table></figure>
+<p>账户赋值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user1 = eth.accounts[0]</span><br></pre></td></tr></table></figure>
+<p>账户余额查询：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.getBalance(user1)		//输出单位为Wei</span><br></pre></td></tr></table></figure>
+<p>查询总区块数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eth.blockNumber</span><br></pre></td></tr></table></figure>
+
+<h2 id="转账交易"><a href="#转账交易" class="headerlink" title="转账交易"></a>转账交易</h2><p>转账：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">user1 = eth.accounts[0]		//账户1，密码123456</span><br><span class="line">user2 = eth.accounts[1]		//账户2，密码654321</span><br><span class="line">personal.unlockAccount(user1,<span class="string">'123456'</span>)		//账户解封</span><br><span class="line">personal.unlockAccount(user2,<span class="string">'654321'</span>)</span><br><span class="line">eth.sendTransaction(&#123;from:user1,to:user2,value:web3.toWei(3,<span class="string">'ether'</span>)&#125;)		//从账户1向账户2转3个以太币</span><br><span class="line">```	</span><br><span class="line">这个时候转账已经完成，但是如果查询账户2中的以太币会显示账户余额为0：</span><br><span class="line">```bash</span><br><span class="line">&gt; eth.getBalance(user2)</span><br><span class="line">0		//输出为0</span><br></pre></td></tr></table></figure>
+<p>此时需要开启挖矿，通过矿工将交易写入区块中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miner.start()</span><br></pre></td></tr></table></figure>
+<p>然后终止：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">miner.stop()</span><br></pre></td></tr></table></figure>
+<p>重新查询账户2中的余额</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getBalance(ues2)</span><br><span class="line">3000000000000000000</span><br></pre></td></tr></table></figure>
+<p>转账完成。</p>
+<h2 id="查询交易"><a href="#查询交易" class="headerlink" title="查询交易"></a>查询交易</h2><p>查询：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; eth.getTransaction(<span class="string">"0x14d3c527a39ab6f3709caaf0ce85879afa5977b41c0e2d9e88f3dd1124d37d29"</span>)</span><br></pre></td></tr></table></figure>
+<p>查询时需要输入交易对应hash，返回交易详情：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  blockHash: <span class="string">"0x6ae1f17bcad236bd9fc1fb7508546e593dbb977fba3eca801f294bf0d691b014"</span>,</span><br><span class="line">  blockNumber: 7,</span><br><span class="line">  from: <span class="string">"0x009e4becb8c3a0937762a70618cbc550ecfe95c3"</span>,</span><br><span class="line">  gas: 21000,</span><br><span class="line">  gasPrice: 1000000000,</span><br><span class="line">  <span class="built_in">hash</span>: <span class="string">"0x14d3c527a39ab6f3709caaf0ce85879afa5977b41c0e2d9e88f3dd1124d37d29"</span>,</span><br><span class="line">  input: <span class="string">"0x"</span>,</span><br><span class="line">  nonce: 0,</span><br><span class="line">  r: <span class="string">"0x35ea6f8bfc69669875e0de95ea79b78936038630303c83fb6664a42892d593ac"</span>,</span><br><span class="line">  s: <span class="string">"0x4205e5a657869c3ceea6902e8f2681c66c67a372eb11db28fe4882469d97e209"</span>,</span><br><span class="line">  to: <span class="string">"0x48f9703d86c687ebe317c5dd391c306ec4d63871"</span>,</span><br><span class="line">  transactionIndex: 0,</span><br><span class="line">  v: <span class="string">"0x50"</span>,</span><br><span class="line">  value: 3000000000000000000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>{<br>  “config”: {<br>    “chainId”: 22,<br>    “homesteadBlock”: 0,<br>    “eip150Block”: 0,<br>    “eip150Hash”: “0x0000000000000000000000000000000000000000000000000000000000000000”,<br>    “eip155Block”: 0,<br>    “eip158Block”: 0,<br>    “byzantiumBlock”: 0,<br>    “constantinopleBlock”: 0,<br>    “petersburgBlock”: 0,<br>    “istanbulBlock”: 0,<br>    “ethash”: {}<br>  },<br>  “nonce”: “0x0000000000000042”,<br>  “timestamp”: “0x5ddf8f3e”,<br>  “extraData”: “0x0000000000000000000000000000000000000000000000000000000000000000”,<br>  “gasLimit”: “0x2fefd8”,<br>  “difficulty”: “0x20000”,<br>  “mixHash”: “0x0000000000000000000000000000000000000000000000000000000000000000”,<br>  “coinbase”: “0x0000000000000000000000000000000000000000”,<br>  “alloc”: { },<br>  “number”: “0x0”,<br>  “gasUsed”: “0x0”,<br>  “parentHash”: “0x0000000000000000000000000000000000000000000000000000000000000000”<br>}</p>
+<!--more-->
       
     </div>
     
@@ -342,284 +373,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/text/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhazhayu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/up.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhazhayu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/15/text/" itemprop="url">~搭个博客(Hexo + Github)~</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-15T19:07:41+08:00">
-                2020-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/blockchain/" rel="tag"># blockchain</a>
           
-            
-          
-
-          
-          
-             <span id="/2020/03/15/text/" class="leancloud_visitors" data-flag-title="~搭个博客(Hexo + Github)~">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>有时间再写。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/03/15/text/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/25/blockchain3/" rel="next" title="区块链学习记录(3)">
+                <i class="fa fa-chevron-left"></i> 区块链学习记录(3)
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/04/title/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhazhayu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/up.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhazhayu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/04/title/" itemprop="url">~lalala~</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-04T20:41:42+08:00">
-                2020-03-04
-              </time>
+              <a href="/2020/10/06/blockchain5/" rel="prev" title="blockchain5">
+                blockchain5 <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/03/04/title/" class="leancloud_visitors" data-flag-title="~lalala~">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>欢迎来到渣渣禹的博客(仅供娱乐和代码测试)….orz</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/03/04/title/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -629,149 +416,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhazhayu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/up.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zhazhayu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/27/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-27T21:33:53+08:00">
-                2020-02-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2020/02/27/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/02/27/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -779,6 +428,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -799,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -869,6 +531,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#私有链创建"><span class="nav-number">1.</span> <span class="nav-text">私有链创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有链挖矿"><span class="nav-number">2.</span> <span class="nav-text">私有链挖矿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转账交易"><span class="nav-number">3.</span> <span class="nav-text">转账交易</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询交易"><span class="nav-number">4.</span> <span class="nav-text">查询交易</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1011,6 +689,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
